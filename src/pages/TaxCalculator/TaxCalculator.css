@@ -1,0 +1,156 @@
+/* ==============================================
+   TAX CALCULATOR SHELL STYLES
+   ============================================== */
+
+.tax-calc-page {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: var(--space-4) auto var(--space-12);
+  padding: 0 var(--margin-mobile);
+}
+
+@media (min-width: 768px) {
+  .tax-calc-page {
+    padding: 0 var(--margin-desktop);
+    margin: var(--space-6) auto var(--space-16);
+  }
+}
+
+.tax-calc-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto var(--space-8);
+}
+
+.tax-calc-header__tag {
+  display: block;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: var(--color-prestige-gold);
+  text-transform: uppercase;
+  margin-bottom: var(--space-1);
+}
+
+.tax-calc-header__title {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 700;
+  color: var(--color-trust-navy);
+  margin-bottom: var(--space-2);
+}
+
+@media (min-width: 768px) {
+  .tax-calc-header__title {
+    font-size: 48px;
+    line-height: 56px;
+  }
+}
+
+.tax-calc-header__desc {
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--color-on-surface-variant);
+}
+
+/* Calculator Container Shell */
+.tax-calc-shell {
+  background-color: var(--color-surface-container-low);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(30, 41, 59, 0.08);
+  padding: var(--space-8) var(--space-4);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .tax-calc-shell {
+    padding: var(--space-12) var(--space-8);
+  }
+}
+
+.tax-calc-shell::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, var(--color-trust-navy), var(--color-prestige-gold));
+}
+
+.tax-calc-shell__icon-wrap {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-ghost-blue);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-6);
+}
+
+.tax-calc-shell__icon {
+  font-size: 40px;
+  color: var(--color-prestige-gold);
+}
+
+.tax-calc-shell__title {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-trust-navy);
+  margin-bottom: var(--space-2);
+}
+
+.tax-calc-shell__subtitle {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-on-surface-variant);
+  margin-bottom: var(--space-8);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Code area placeholder */
+.tax-calc-placeholder-area {
+  border: 2px dashed rgba(212, 175, 55, 0.3);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  background-color: rgba(212, 175, 55, 0.02);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  transition: border-color var(--transition-base), background-color var(--transition-base);
+}
+
+.tax-calc-placeholder-area:hover {
+  border-color: var(--color-prestige-gold);
+  background-color: rgba(212, 175, 55, 0.05);
+}
+
+.tax-calc-placeholder-code {
+  font-family: monospace;
+  font-size: 13px;
+  background-color: var(--color-surface-container-high);
+  color: var(--color-trust-navy);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(30, 41, 59, 0.1);
+  word-break: break-all;
+  max-width: 100%;
+}
+
+.tax-calc-placeholder-text {
+  font-size: 14px;
+  color: var(--color-on-surface-variant);
+  font-weight: 500;
+}
