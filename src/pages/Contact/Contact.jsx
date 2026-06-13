@@ -30,7 +30,7 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
     setStatus({ type: '', message: '' })
@@ -45,21 +45,44 @@ export default function Contact() {
       return
     }
 
-    // Mock API Submit
-    setTimeout(() => {
+    try {
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbw6vc9hzvppWpxjNxLHSvmFMmgBIrNVRUl8ayIStRpNKJPni1qJMiXR3ju4W6PzwL-P/exec",
+        {
+          method: "POST",
+          body: JSON.stringify(formData)
+        }
+      );
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus({
+          type: 'success',
+          message: 'Thank you for reaching out! A Value Services expert will contact you within 24 hours.',
+        })
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          message: '',
+        })
+      } else {
+        setStatus({
+          type: 'error',
+          message: `Failed to send message: ${data.error || 'Please try again.'}`,
+        })
+      }
+    } catch (err) {
+      console.error(err);
       setStatus({
-        type: 'success',
-        message: 'Thank you for reaching out! A Value Services expert will contact you within 24 hours.',
+        type: 'error',
+        message: 'An error occurred while sending your message. Please try again later.',
       })
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        message: '',
-      })
+    } finally {
       setIsSubmitting(false)
-    }, 1200)
+    }
   }
 
   return (
@@ -79,10 +102,10 @@ export default function Contact() {
         <section className="contact-card" aria-labelledby="form-heading">
           <h2 id="form-heading" className="contact-card__title">Send a Message</h2>
           <form className="contact-form" onSubmit={handleSubmit} noValidate>
-            
+
             {/* Status alerts */}
             {status.message && (
-              <div 
+              <div
                 className={`form-status form-status--${status.type}`}
                 role="alert"
               >
