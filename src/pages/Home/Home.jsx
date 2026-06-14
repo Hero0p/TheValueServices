@@ -108,7 +108,7 @@ export default function Home() {
       </section>
 
       {/* Stats Bar */}
-      <section className="stats-bar" aria-label="Key Achievements">
+      {/* <section className="stats-bar" aria-label="Key Achievements">
         <div className="stats-bar__inner">
           {STATS.map((stat, idx) => (
             <div key={idx} className="stats-bar__item">
@@ -117,7 +117,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* Services Section */}
       <section id="services" className="services" aria-labelledby="services-heading">
