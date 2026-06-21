@@ -1,10 +1,12 @@
 import { useState, useEffect, useCallback } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
+import logo from '../../assets/logo1.png'
 import './Navbar.css'
 
 const NAV_ITEMS = [
   { path: '/', label: 'HOME', icon: 'home' },
   { path: '/contact', label: 'CONTACT', icon: 'mail' },
+  { path: '/sessions', label: 'SESSIONS', icon: 'event' },
   { path: '/calc.html', label: 'TAX CALCULATOR', icon: 'calculate', external: true },
 ]
 
@@ -51,7 +53,7 @@ export default function Navbar() {
       <div className="navbar__inner">
         {/* Brand */}
         <NavLink to="/" className="navbar__brand" aria-label="Value Services Home">
-          <span className="material-symbols-outlined filled navbar__brand-icon">account_balance</span>
+          <img src={logo} alt="Value Services Logo" className="navbar__brand-icon" />
           Value Services
         </NavLink>
 

@@ -49,8 +49,9 @@
 }
 
 .navbar__brand-icon {
-  color: var(--color-prestige-gold);
-  font-size: 28px;
+  height: 65px;
+  width: auto;
+  object-fit: contain;
 }
 
 /* Desktop Nav Links */
